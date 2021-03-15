@@ -10,23 +10,61 @@
 </head>
 <body>
 
-    <div id="app">
-        <ul>
-            <li v-for='user in users'>{{user.name}}</li>
-        </ul>
-    </div>
-
+    
+    <div id="app">Error</div>
 
     <script>
         new Vue({
             el: '#app',
+            template:`
+        <div>
+        <h1 v-if = 'counter != 5'>{{addJStoVue}}</h1>
+        <ul>
+            <li v-for='user in users'>{{user.name}}</li>
+        </ul>
+
+        {{counter}}<br>
+
+        <button v-on:click='addOne()'>+1</button>
+        <button v-on:click='minusOne()'>-1</button><br>
+        <button v-on:click='addFive()'>+5</button>
+        <button v-on:click='minusFive()'>-5</button>
+        
+        </div>`,
+
             data:{
+                title: 'Vue',
+                counter: 0,
                 users: [
                     {name: 'Krystian', id: 1},
                     {name: 'Tomek', id:2}
                 ]
+            },
+
+            computed:{
+                addJStoVue(){
+                    return this.title = this.title + ".js"
+                }
+            },
+
+            methods:{
+                addOne(){
+                    this.counter ++;
+                },
+
+                addFive(){
+                    this.counter = this.counter + 5;
+                },
+
+                minusOne(){
+                    this.counter --;
+                },
+
+                minusFive(){
+                    this.counter = this.counter - 5;
+                }
             }
-        })
+        });
     </script>
 </body>
 </html>
