@@ -13,7 +13,7 @@
     <div id="app">
         <p>{{ title }}</p>
         <p>{{counter}}</p>
-        <button v-on:click="incraseCounter">+1</button>
+        <button v-on:click="counter = counter + 1">+1</button>
     </div>
     
 
@@ -22,12 +22,6 @@
             el: '#app',
             data: { title: 'Hello',
             counter: 0
-        },
-
-        methods: {
-            incraseCounter(){
-                this.counter = this.counter + 1;
-            }
         }
         })
     </script>
