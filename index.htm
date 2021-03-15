@@ -23,7 +23,15 @@
             el: '#app',
             data: { title: 'Hello',
             counter: 0
-        }})
+        },
+
+        watch:{
+            counter(){
+                alert('Counter was updated')
+            }
+        }
+    
+    })
     </script>
 </body>
 </html>
