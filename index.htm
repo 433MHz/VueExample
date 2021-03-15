@@ -14,23 +14,37 @@
         <p v-if="counter === 5">{{ title }}</p>
         <p v-else>{{counterMultiply}}</p>
         <button v-on:click="counter++">+1</button>
-        <button v-on:click="counter--">-1</button>
+        <button v-on:click="counter--">-1</button><br>
+        <button v-on:click="Add5ToCounter()">+5</button>
+        <button v-on:click="Subtract5FromCounter()">-5</button>
     </div>
     
 
     <script>
         new Vue({
-            el: '#app',
-            data: { 
-                title: 'Hello',
+
+            el: '#app',     //Id elementu na którym mają być wykonywane działania
+            
+            data: {         //Tworzenie zmiennych
+                title: 'Its 5 now',
                 counter: 0
         },
 
-        watch:{},
+        watch:{},           //Tworzenie funkcji która obserwuje zmianę przypisanej zmiennej
 
-        computed:{
+        computed:{          //Tworzenie zmiennej i przypisywanie jej logiki w funkcji
             counterMultiply(){
               return this.counter + ' value';  
+            },
+        },
+
+        methods: {          //Tworzenie metod do których można się odwołać
+            Subtract5FromCounter(){
+                this.counter = this.counter - 5;
+            },
+
+            Add5ToCounter(){
+                this.counter = this.counter + 5;
             }
         }
 
